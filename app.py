@@ -1,17 +1,15 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, session,url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
+app.secret_key = "randomstring123"
 
 app.config["MONGO_DBNAME"] = 'guitar_collection'
 app.config["MONGO_URI"] = 'mongodb+srv://root:rOOtUser@myfirstcluster-2whkw.mongodb.net/guitar_collection?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
-
-
-
 
 # @app.route('/')
 # @app.route('/get_guitars')
@@ -20,6 +18,23 @@ mongo = PyMongo(app)
 #     category_id = guitars[0]['category_id']
 #     category_name = mongo.db.categories.find({"_id":ObjectId(category_id)})[0]
 #     return render_template("guitars.html", guitars=guitars, category_name = category_name)
+
+
+@app.route('/', methods = ["GET", "POST"])
+def index():
+    
+    if request.method == "POST":
+        session["username"] = request.form["username"]
+        
+    if "username" in session:
+        return redirect(session["username"])
+        
+        
+@app.route('/<username>')
+def user(username):
+    return "Hi " + username
+
+@app.route('/<username/<message>')
 
 
 @app.route('/')
@@ -44,22 +59,21 @@ def insert_guitars():
 
 @app.route('/edit_guitars/<guitar_id>')
 def edit_guitars(guitar_id):
-    the_guitars =  mongo.db.guitars.find_one({"_id": ObjectId(task_id)})
+    the_guitar =  mongo.db.guitars.find_one({"_id": ObjectId(guitar_id)})
     all_categories =  mongo.db.categories.find()
-    return render_template('editguitar.html', guitar=the_guitar,
+    return render_template('editguitars.html', guitar=the_guitar,
                            categories=all_categories)
 
 
 @app.route('/update_guitar/<guitar_id>', methods=["POST"])
-def update_guitar(task_id):
+def update_guitar(guitar_id):
     guitars = mongo.db.guitars
-    guitars.update( {'_id': ObjectId(task_id)},
+    guitars.update( {'_id': ObjectId(guitar_id)},
     {
         'guitar_name':request.form.get('guitar_name'),
         'category_name':request.form.get('category_name'),
         'guitar_description': request.form.get('guitar_description'),
-        'due_date': request.form.get('due_date'),
-        'is_urgent':request.form.get('is_urgent')
+        'date_created': request.form.get('date_created')
     })
     return redirect(url_for('get_guitars'))
 
@@ -115,6 +129,8 @@ def insert_category():
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
+    
+    
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
