@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, session,url_for
+from flask import Flask, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -22,14 +22,14 @@ mongo = PyMongo(app)
 
 @app.route('/', methods = ["GET", "POST"])
 def index():
-    
+
     if request.method == "POST":
         session["username"] = request.form["username"]
-        
+
     if "username" in session:
         return redirect(session["username"])
-        
-        
+
+
 @app.route('/<username>')
 def user(username):
     return "Hi " + username
@@ -40,7 +40,7 @@ def user(username):
 @app.route('/')
 @app.route('/get_guitars')
 def get_guitars():
-    return render_template("guitars.html", 
+    return render_template("guitars.html",
                            guitars=mongo.db.guitars.find())
 
 
@@ -79,8 +79,8 @@ def update_guitar(guitar_id):
 
 
 @app.route('/delete_guitar/<guitar_id>')
-def delete_guitar(guitar_id): 
-# we access the tasks collection and we call remove and we pass in the task_id as the parameter. 
+def delete_guitar(guitar_id):
+# we access the tasks collection and we call remove and we pass in the task_id as the parameter.
 # Key value pair inside the curly braces.We use the object ID to format or parse the task ID in a way that's acceptable to Mongo.
 # Once that's in place, we want to return or redirect.So we redirect to get tasks.
 # Why?
@@ -100,13 +100,13 @@ def get_categories():
 def delete_category(category_id):
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
     return redirect(url_for('get_categories'))
-    
-    
+
+
 @app.route('/edit_category/<category_id>')
 def edit_category(category_id):
     return render_template('editcategory.html',
     category=mongo.db.categories.find_one({'_id': ObjectId(category_id)}))
-    
+
 
 @app.route('/update_category/<category_id>', methods=['POST'])
 def update_category(category_id):
@@ -114,23 +114,23 @@ def update_category(category_id):
         {'_id': ObjectId(category_id)},
         {'category_name': request.form.get('category_name')})
     return redirect(url_for('get_categories'))
-    
-    
+
+
 @app.route('/insert_category', methods=['POST'])
 def insert_category():
-    # accessing mongoDB data base in preperstion of the insert. category_doc is creating a new BSON formatted doc. 
+    # accessing mongoDB data base in preperstion of the insert. category_doc is creating a new BSON formatted doc.
     category_doc = {'category_name': request.form.get('category_name')}
     # adding the category doc into the catergory table.
     mongo.db.categories.insert_one(category_doc)
     # then return a redirect back to categories.
     return redirect(url_for('get_categories'))
-    
+
 # the function that will direct us and render the view that allows us to add a new category in the first place.
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')
-    
-    
+
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
