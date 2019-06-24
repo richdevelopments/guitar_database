@@ -11,6 +11,7 @@ app.config["MONGO_URI"] = 'mongodb+srv://root:rOOtUser@myfirstcluster-2whkw.mong
 
 mongo = PyMongo(app)
 
+
 # @app.route('/')
 # @app.route('/get_guitars')
 # def get_guitars():
@@ -20,21 +21,42 @@ mongo = PyMongo(app)
 #     return render_template("guitars.html", guitars=guitars, category_name = category_name)
 
 
-@app.route('/', methods = ["GET", "POST"])
-def index():
+# @app.route('/', method =['GET', 'POST'])
+# def index():
+#     if request.method == 'POST':
+#         session.pop('user', None)
 
-    if request.method == "POST":
-        session["username"] = request.form["username"]
+#         if request.form['password'] == 'password':
+#             session["user"] = request.form['username']
+#             return redirect(url_for('protected'))
 
-    if "username" in session:
-        return redirect(session["username"])
+#     return render_template('index.html')
 
+# @app.route('/protected')
+# def getsession()
 
-@app.route('/<username>')
-def user(username):
-    return "Hi " + username
+# @app.route('/getsession')
+# def getsession
+# if user in session:
+#     return session ['user']
 
-@app.route('/<username/<message>')
+#  return 'Not logged in!'
+
+# @app.route('/dropsession')
+# def dropsession()
+#     session.pop('user', None)
+#     return 'Dropped!'
+
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     error = None
+#     if request.method == 'POST':
+#         if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+#             error = 'Invalid Credentials. Please try again.'
+#         else:
+#             return redirect(url_for('home'))
+#     return render_template('login.html', error=error)
+
 
 
 @app.route('/')
@@ -73,14 +95,15 @@ def update_guitar(guitar_id):
         'guitar_name':request.form.get('guitar_name'),
         'category_name':request.form.get('category_name'),
         'guitar_description': request.form.get('guitar_description'),
-        'date_created': request.form.get('date_created')
+        'date_created': request.form.get('date_created'),
+        'image_url': request.form.get('image_url')
     })
     return redirect(url_for('get_guitars'))
 
 
 @app.route('/delete_guitar/<guitar_id>')
 def delete_guitar(guitar_id):
-# we access the tasks collection and we call remove and we pass in the task_id as the parameter.
+# access the tasks collection and call remove and we pass in the task_id as the parameter.
 # Key value pair inside the curly braces.We use the object ID to format or parse the task ID in a way that's acceptable to Mongo.
 # Once that's in place, we want to return or redirect.So we redirect to get tasks.
 # Why?
