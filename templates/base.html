@@ -6,6 +6,8 @@
         <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 
         <style>
+            /*buttons*/
+
             .btn_small {
                 height: 24px;
                 width: 60px;
@@ -16,30 +18,72 @@
 
             .btn_danger {
                 height: 24px;
-                width: 65px;
+                width: 60px;
                 line-height: 24px;
                 margin: 5px 5px;
                 padding: 0 0.5em;
             }
 
+             /*nav-bar*/
+
             .guitar_header {
                 margin-top: 8px;
             }
 
-
             .navbar {
                 background-color: DarkGoldenrod;
+            }
+
+            .heading-row {
+                position: center;
+                margin-bottom: 5px;
             }
 
             .logo {
                 padding-left: 10px;
             }
 
+            /*search-bar*/
+
+            .search-bar {
+                margin-top: 0px;
+            }
+
+            .input-field input[type=search]+label {
+                left: 0px;
+            }
+
+            .material-icons {
+                font-size: 20px;
+            }
+
+            .input-field input[type=search]~.material-icons {
+                font-size: 20px;
+                padding-left: 2px;
+            }
+
+            input[type=search]:not(.browser-default):focus:not([readonly]),
+            textarea.materialize-textarea:focus:not([readonly]) {
+                border-bottom: #f6bb36;
+                box-shadow: 0 1px 0 0 #f6bb36;
+                padding-left: 25px;
+            }
+
+            .input-field .prefix.active {
+                color: #f6bb36;
+            }
+
+             p {
+                color: #6f87bd;
+                font-size: 25px;
+            }
+
+
         </style>
     </head>
     <body>
         <header>
-            <nav class="navbar">
+            <nav class="navbar topnav">
                 <div class="nav-wrapper">
                     <div class="logo">
                     <a href="{{url_for('get_guitars')}}" class="brand-logo">Guitar Database</a>
@@ -57,6 +101,23 @@
                     </ul>
                 </div>
             </nav>
+            <div class="row heading_row">
+                <div class="col s12 m6" id="heading">
+                    <p>Search, Add and Edit the Guitars!</p>
+                </div>
+                <div class="col s12 m6">
+                    <div class="search">
+                        <form action="{{ url_for('find_guitars') }}" method="POST" class="search_box">
+                            <div class="input-field search-bar">
+                                <input id="search" type="search" required="" name="search_term">
+                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                <i class="material-icons">close</i>
+                            </div>
+                            <button class="btn submit_btn" type="submit">Search Guitars</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </header>
         <div class="container">
             {% block content %} {% endblock %}
@@ -68,6 +129,9 @@
                 $('.collapsible').collapsible();
                 $('select').material_select();
                 $('.button-collapse').sideNav();
+            });
+            $('.datepicker').on('mousedown',function(event){
+                event.preventDefault();
             });
             $('.datepicker').pickadate({
                 selectMonths: true, // Creates a dropdown to control month
