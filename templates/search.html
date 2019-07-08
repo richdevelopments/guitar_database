@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>Results for: {{ query }}</h2>
+    <div class="row">
+        {% for guitar in guitars %}
+        <div class="card" style="padding-left: 5px">
+            <div>
+                <strong>{{guitar.guitar_name}} - {{guitar.category_name}} </strong> - {{guitar.date_created}}
+            </div>
+            <div class="card-image">
+                <img src="{{guitar.image_url}}" class="img-rounded" alt="guitarpic" width="530" height="350">
+            </div>
+            <div class="card-content">
+                <span>
+                    {{guitar.guitar_description}}
+                </span>
+            </div>
+            <div class="card-action">
+                <a href="{{ url_for('get_guitars', guitar_id=guitar._id) }}">View</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
