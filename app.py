@@ -1,7 +1,10 @@
 import os
 from flask import Flask, render_template, redirect, request, session, url_for
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, pymongo
+from flask_paginate import Pagination, get_page_parameter
 from bson.objectid import ObjectId
+import re
+
 
 app = Flask(__name__)
 app.secret_key = "randomstring123"
@@ -10,54 +13,6 @@ app.config["MONGO_DBNAME"] = 'guitar_collection'
 app.config["MONGO_URI"] = 'mongodb+srv://root:rOOtUser@myfirstcluster-2whkw.mongodb.net/guitar_collection?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
-
-
-# @app.route('/')
-# @app.route('/get_guitars')
-# def get_guitars():
-#     guitars=mongo.db.guitars.find()
-#     category_id = guitars[0]['category_id']
-#     category_name = mongo.db.categories.find({"_id":ObjectId(category_id)})[0]
-#     return render_template("guitars.html", guitars=guitars, category_name = category_name)
-
-
-# @app.route('/', method =['GET', 'POST'])
-# def index():
-#     if request.method == 'POST':
-#         session.pop('user', None)
-
-#         if request.form['password'] == 'password':
-#             session["user"] = request.form['username']
-#             return redirect(url_for('protected'))
-
-#     return render_template('index.html')
-
-# @app.route('/protected')
-# def getsession()
-
-# @app.route('/getsession')
-# def getsession
-# if user in session:
-#     return session ['user']
-
-#  return 'Not logged in!'
-
-# @app.route('/dropsession')
-# def dropsession()
-#     session.pop('user', None)
-#     return 'Dropped!'
-
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-#     error = None
-#     if request.method == 'POST':
-#         if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-#             error = 'Invalid Credentials. Please try again.'
-#         else:
-#             return redirect(url_for('home'))
-#     return render_template('login.html', error=error)
-
-
 
 @app.route('/')
 @app.route('/get_guitars')
@@ -153,6 +108,26 @@ def insert_category():
 def add_category():
     return render_template('addcategory.html')
 
+
+# Search Database for Guitars
+@app.route('/find_guitars', methods=['GET', 'POST'])
+def find_guitars():
+    if request.method=='POST':
+
+        # get the search term
+        search_term = request.form.get("search_term")
+
+        #  create the index
+        mongo.db.guitars.create_index( [("$**", 'text')] )
+
+         # search with the search term that came through the form
+        cursor = mongo.db.guitars.find({ "$text": { "$search": search_term } })
+        guitars = [guitar for guitar in cursor]
+
+        # send recipes to page
+        return render_template('search.html', guitars=guitars, query=search_term)
+
+    return render_template('search.html')
 
 
 if __name__ == '__main__':
