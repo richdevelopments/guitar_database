@@ -38,3 +38,4 @@ virtualenv-clone==0.5.3
 virtualenvwrapper==4.8.4
 Werkzeug==0.15.4
 wrapt==1.11.1
+flask-paginate==0.5.3
