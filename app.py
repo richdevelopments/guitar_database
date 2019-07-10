@@ -124,7 +124,7 @@ def find_guitars():
         cursor = mongo.db.guitars.find({ "$text": { "$search": search_term } })
         guitars = [guitar for guitar in cursor]
 
-        # send recipes to page
+        # send guitars to page
         return render_template('search.html', guitars=guitars, query=search_term)
 
     return render_template('search.html')
