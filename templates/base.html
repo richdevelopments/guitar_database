@@ -3,97 +3,182 @@
     <head>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Mr+Dafoe" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
         <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 
         <style>
-            /*buttons*/
 
-            .btn_small {
-                height: 24px;
-                width: 60px;
-                line-height: 24px;
-                margin: 5px 5px;
-                padding: 0 0.5em;
-            }
+        #grad1 {
+            height: 100px;
+            background-color: #4295f5;
+            /* For browsers that do not support gradients */
+            background-image: linear-gradient(90deg, #4295f5, grey);
+            /* Standard syntax (must be last) */
+        }
 
-            .btn_danger {
-                height: 24px;
-                width: 60px;
-                line-height: 24px;
-                margin: 5px 5px;
-                padding: 0 0.5em;
-            }
+        .menuItem {
+            margin-top: 15px;
+            font-size: 20px;
+        }
 
-             /*nav-bar*/
+        /*.logo {*/
+        /*    color: #d54d7b;*/
+        /*    font-family: "Great Vibes", cursive;*/
+        /*    font-size: 165px;*/
+        /*    line-height: 160px;*/
+        /*    font-weight: normal;*/
+        /*    margin-bottom: 2px;*/
+            /*margin-top: 40px;*/
+        /*    text-align: left;*/
+        /*    text-shadow: 0 1px 1px #fff;*/
 
-            .guitar_header {
-                margin-top: 8px;
-            }
+        /*}*/
 
-            .navbar {
-                background-color: DarkGoldenrod;
-            }
 
-            .heading-row {
-                position: center;
-                margin-bottom: 5px;
-            }
+        .btn
+        submit_btn {
+            color: #4295f5;
+        }
 
-            .logo {
-                padding-left: 10px;
-            }
+        input[type=search]:not(.browser-default):focus:not([readonly]) {
+            border-bottom: #6f87bd;
+            box-shadow: 0 1px 0 0 #6f87bd;
+            padding-left: 25px;
+        }
 
-            /*search-bar*/
 
-            .search-bar {
-                margin-top: 0px;
-            }
+        p {
+            color: #6f87bd;
+            font-size: 20px;
+        }
 
-            .input-field input[type=search]+label {
-                left: 0px;
-            }
+        input[type=text]:focus {
+            background-color: #ece6e5;
+            outline: none;
+        }
 
-            .material-icons {
-                font-size: 20px;
-            }
+        h3 {
+            color: #6f87bd;
+        }
 
-            .input-field input[type=search]~.material-icons {
-                font-size: 20px;
-                padding-left: 2px;
-            }
+        /* Add a background color when the inputs get focus */
 
-            input[type=search]:not(.browser-default):focus:not([readonly]),
-            textarea.materialize-textarea:focus:not([readonly]) {
-                border-bottom: #f6bb36;
-                box-shadow: 0 1px 0 0 #f6bb36;
-                padding-left: 25px;
-            }
+        input[type=text]:focus,
+        input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
 
-            .input-field .prefix.active {
-                color: #f6bb36;
-            }
+        /* Set a style for all buttons */
 
-             p {
-                color: #6f87bd;
-                font-size: 25px;
-            }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        button:hover {
+            opacity: 1;
+        }
+
+        .btn,
+        .btn-large {
+            background-color: #4295f5;
+        }
+
+        .btn:hover,
+        .btn-sml:hover,
+        .btn_small:hover,
+        .red:hover,
+        .btn-large:hover {
+            background-color: #95abc4;
+        }
+
+
+        /* Extra styles for the cancel button */
+
+        .cancelbtn {
+            padding: 14px 20px;
+            background-color: #f44336;
+        }
+
+        .guitar {
+            position: relative;
+            background-image: -webkit-linear-gradient(#378DBC 0%, #B6E8F1 46%, #ffffff 50%, #32120E 54%, #FFC488 58%, #582C11 90%, #EC9B4E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 4px #f5f5f5;
+            font-size: 100px;
+            font-family: 'Titillium Web', sans-serif;
+            font-style: italic;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .guitar:before {
+            content: 'Guitar';
+            position: absolute;
+            left: 0;
+            top: -10;
+            z-index: 10;
+            background-image: -webkit-linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%);
+            background-position: -30px 0;
+            -webkit-background-clip: text;
+            -webkit-text-stroke: 0;
+            padding-right: 8px;
+            -webkit-animation-name: chrome_effect;
+            -webkit-animation-duration: 6s;
+            -webkit-animation-delay: 2s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+        }
+
+        .database {
+            position: absolute;
+            margin: -10px;
+            font-family: 'Mr Dafoe', cursive;
+            font-size: 60px;
+            color: #F975F7;
+            transform: rotate(-15deg);
+            -ms-transform: rotate(-15deg);
+            /* IE 9 */
+            -webkit-transform: rotate(-15deg);
+            /* Safari and Chrome */
+            margin-left: -95px;
+            margin-top: 60px;
+            -webkit-text-stroke: 1px #f008b7;
+            -webkit-filter: drop-shadow(2px 2px 10px #f008b7);
+            z-index: 70;
+        }
+
+        .windows .dreams {
+            -webkit-text-stroke: 4px #f008b7;
+        }
 
 
         </style>
+
     </head>
     <body>
         <header>
-            <nav class="navbar topnav">
+            <nav class="navbar topnav" id="grad1">
                 <div class="nav-wrapper">
-                    <div class="logo">
-                    <a href="{{url_for('get_guitars')}}" class="brand-logo">Guitar Database</a>
-                    </div>
                     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="{{url_for('get_guitars')}}">Home</a></li>
-                        <li><a href="{{url_for('add_guitars')}}">Add Guitar</a></li>
-                        <li><a href="{{url_for('get_categories')}}">Manage Categories</a></li>
+                        <li><a href="{{url_for('get_guitars')}}" class="menuItem">Home</a></li>
+                        <li><a href="{{url_for('add_guitars')}}" class="menuItem">Add Guitar</a></li>
+                        <li><a href="{{url_for('get_categories')}}" class="menuItem">Manage Categories</a></li>
                     </ul>
+                    <div class="logo" id="wrapper">
+                    <a href="{{url_for('get_guitars')}}" class="guitar">Guitar</a>
+                    <a href="{{url_for('get_guitars')}}" class="database">Database</a>
+                    </div>
                     <ul class="side-nav" id="mobile-demo">
                         <li><a href="{{url_for('get_guitars')}}">Home</a></li>
                         <li><a href="{{url_for('add_guitars')}}">Add Guitar</a></li>
@@ -102,8 +187,8 @@
                 </div>
             </nav>
             <div class="row heading_row">
-                <div class="col s12 m6" id="heading">
-                    <p>Search, Add and Edit the Guitars!</p>
+                <div class="col s12 m6">
+                    <p></p>
                 </div>
                 <div class="col s12 m6">
                     <div class="search">
@@ -141,6 +226,14 @@
                 close: 'Ok',
                 closeOnSelect: false // Close upon selecting a date,
             });
+        </script>
+        <script type="text/javascript">
+            if (navigator.platform.indexOf('Win') != -1) {
+                window.document.getElementById("wrapper").setAttribute("class", "windows");
+            }
+            else if (navigator.platform.indexOf('Mac') != -1) {
+                window.document.getElementById("wrapper").setAttribute("class", "mac");
+            }
         </script>
     </body>
 </html>
