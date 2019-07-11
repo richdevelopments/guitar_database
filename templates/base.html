@@ -5,9 +5,58 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/css?family=Mr+Dafoe" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
+
+
+        <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
         <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 
         <style>
+        body {
+            width: 50wh;
+            height: 50vh;
+            color: #000000;
+            background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+            background-size: 300% 300%;
+            -webkit-animation: Gradient 15s ease infinite;
+            -moz-animation: Gradient 15s ease infinite;
+            animation: Gradient 15s ease infinite;
+        }
+
+        @-webkit-keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        @-moz-keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
+
+        @keyframes Gradient {
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
+        }
 
         #grad1 {
             height: 100px;
@@ -21,19 +70,6 @@
             margin-top: 15px;
             font-size: 20px;
         }
-
-        /*.logo {*/
-        /*    color: #d54d7b;*/
-        /*    font-family: "Great Vibes", cursive;*/
-        /*    font-size: 165px;*/
-        /*    line-height: 160px;*/
-        /*    font-weight: normal;*/
-        /*    margin-bottom: 2px;*/
-            /*margin-top: 40px;*/
-        /*    text-align: left;*/
-        /*    text-shadow: 0 1px 1px #fff;*/
-
-        /*}*/
 
 
         .btn
@@ -50,8 +86,13 @@
 
         p {
             color: #6f87bd;
-            font-size: 20px;
+            font-size: 15px;
         }
+
+        .image_url {
+           color: black;
+        }
+
 
         input[type=text]:focus {
             background-color: #ece6e5;
@@ -64,8 +105,7 @@
 
         /* Add a background color when the inputs get focus */
 
-        input[type=text]:focus,
-        input[type=password]:focus {
+        input[type=text]:focus {
             background-color: #ddd;
             outline: none;
         }
@@ -226,8 +266,7 @@
                 close: 'Ok',
                 closeOnSelect: false // Close upon selecting a date,
             });
-        </script>
-        <script type="text/javascript">
+
             if (navigator.platform.indexOf('Win') != -1) {
                 window.document.getElementById("wrapper").setAttribute("class", "windows");
             }
