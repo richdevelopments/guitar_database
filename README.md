@@ -1,7 +1,7 @@
 # Guitar Database
-Stream One Project: User-Centric Frontend Development - Code Institute
+Data-centric Development
 
-This eb application is a database of guitars that can be searched and viewed by any user. I have built this project using Flask, Python, HTML5, CSS3 and MongoDB.
+This web application is a database of guitars that can be searched and viewed by any user. I have built this project using Flask, Python, HTML5, CSS3 and MongoDB.
 The user is able to create, update and delete their own guitars.
 
 
@@ -50,16 +50,16 @@ I could also have a list of all of the guitars on another page to the Home page,
 - categories
 - guitars
 
-**categories**
-_id:
-_category_name:
-
-**guitars**
--id:
-guitar_name:
+**categories**<br>
+ _id:<br>
 category_name:
-guitar_description:
-date_created:
+
+**guitars**<br>
+_id:<br>
+guitar_name:<br>
+category_name:<br>
+guitar_description:<br>
+date_created:<br>
 image_url:
 
 Screenshots of the database can be viewed [here](https://imgur.com/a/h1Ssf6e)
