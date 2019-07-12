@@ -6,7 +6,7 @@ The user is able to create, update and delete their own guitars.
 
 
 ## Demo
-A live demo can be found [here](https://www.haleyschafer.com/).
+A live demo can be found [here]().
 
 
 ## UX
