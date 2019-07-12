@@ -6,7 +6,7 @@ The user is able to create, update and delete their own guitars.
 
 
 ## Demo
-A live demo can be found [here]().
+A live demo can be found [here](https://guitar-collection.herokuapp.com/).
 
 
 ## UX
@@ -121,7 +121,7 @@ Due to this issue, I had to put some of the CSS in the base.html page.
 
 ## Deployment
 The application was coded on Cloud9 and AWS Cloud 9. I then committed the code to GITHUB at https://github.com/richdevelopments/guitar_database
-The application was deployed from GITHUB to Heroku at
+The application was deployed from GITHUB to Heroku at https://guitar-collection.herokuapp.com/.
 My database is stored on MongoDB. This is setup within Heroku.
 
 
