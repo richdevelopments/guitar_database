@@ -50,18 +50,19 @@ I could also have a list of all of the guitars on another page to the Home page,
 - categories
 - guitars
 
-**categories**<br>
+**categories** {<br>
  _id:<br>
-category_name:
+category_name:<br>
+},
 
-**guitars**<br>
+**guitars** {<br>
 _id:<br>
 guitar_name:<br>
 category_name:<br>
 guitar_description:<br>
 date_created:<br>
-image_url:
-
+image_url:<br>
+}<br>
 Screenshots of the database can be viewed [here](https://imgur.com/a/h1Ssf6e)
 
 ## Technologies
