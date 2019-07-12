@@ -10,7 +10,7 @@ A live demo can be found [here](https://guitar-collection.herokuapp.com/).
 
 
 ## UX
-My goal in the design was to make it as easy as possible to use the features of the site while striving for a minimalist design.
+My goal in the design was to make it as easy as possible to use the features of the site while striving for a minimalist, 80's design.
 
 The intended users of the project are as follows:
 - Users who are interested in guitars of all body types, makes and models.
