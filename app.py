@@ -59,11 +59,10 @@ def update_guitar(guitar_id):
 @app.route('/delete_guitar/<guitar_id>')
 def delete_guitar(guitar_id):
 # access the tasks collection and call remove and we pass in the task_id as the parameter.
-# Key value pair inside the curly braces.We use the object ID to format or parse the task ID in a way that's acceptable to Mongo.
-# Once that's in place, we want to return or redirect.So we redirect to get tasks.
-# Why?
-# Because once that function is complete, we want to see it disappear. We want visual evidence to see that that task is no longer on our list.
-# So we redirect to the get_tasks function.
+# Key value pair inside the curly braces.I use the object ID to format or parse the task ID in a way that's acceptable to Mongo.
+# Once that's in place, I want to return or redirect.So I redirect to get tasks.
+# Because once that function is complete, I want to see it disappear. I want visual evidence to see that that task is no longer on our list.
+# So I redirect to the get_tasks function.
     mongo.db.guitars.remove({'_id': ObjectId(guitar_id)})
     return redirect(url_for('get_guitars'))
 
@@ -103,7 +102,7 @@ def insert_category():
     # then return a redirect back to categories.
     return redirect(url_for('get_categories'))
 
-# the function that will direct us and render the view that allows us to add a new category in the first place.
+# the function that will direct and render the view that allows user to add a new category in the first place.
 @app.route('/add_category')
 def add_category():
     return render_template('addcategory.html')

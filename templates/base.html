@@ -6,204 +6,188 @@
         <link href="https://fonts.googleapis.com/css?family=Mr+Dafoe" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
 
-
-        <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
         <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 
         <style>
-        body {
-            width: 50wh;
-            height: 50vh;
-            color: #000000;
-            background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-            background-size: 300% 300%;
-            -webkit-animation: Gradient 15s ease infinite;
-            -moz-animation: Gradient 15s ease infinite;
-            animation: Gradient 15s ease infinite;
-        }
+            /* Animated background */
 
-        @-webkit-keyframes Gradient {
-            0% {
-                background-position: 0% 50%
+            body {
+                width: 100wh;
+                height: 100vh;
+                color: #000000;
+                background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+                background-size: 300% 300%;
+                -webkit-animation: Gradient 15s ease infinite;
+                -moz-animation: Gradient 15s ease infinite;
+                animation: Gradient 15s ease infinite;
             }
-            50% {
-                background-position: 100% 50%
+
+            @-webkit-keyframes Gradient {
+                0% {
+                    background-position: 0% 50%
+                }
+                50% {
+                    background-position: 100% 50%
+                }
+                100% {
+                    background-position: 0% 50%
+                }
             }
-            100% {
-                background-position: 0% 50%
+
+            @-moz-keyframes Gradient {
+                0% {
+                    background-position: 0% 50%
+                }
+                50% {
+                    background-position: 100% 50%
+                }
+                100% {
+                    background-position: 0% 50%
+                }
             }
-        }
 
-        @-moz-keyframes Gradient {
-            0% {
-                background-position: 0% 50%
+            @keyframes Gradient {
+                0% {
+                    background-position: 0% 50%
+                }
+                50% {
+                    background-position: 100% 50%
+                }
+                100% {
+                    background-position: 0% 50%
+                }
             }
-            50% {
-                background-position: 100% 50%
+
+            /* navbar */
+
+            #grad1 {
+                height: 100px;
+                background-color: #4295f5;
+                /* For browsers that do not support gradients */
+                background-image: linear-gradient(90deg, #4295f5, grey);
+                /* Standard syntax (must be last) */
             }
-            100% {
-                background-position: 0% 50%
+
+            .menuItem {
+                margin-top: 15px;
+                font-size: 20px;
             }
-        }
 
-        @keyframes Gradient {
-            0% {
-                background-position: 0% 50%
+            /* Cards */
+
+            p {
+                color: #6f87bd;
+                font-size: 15px;
             }
-            50% {
-                background-position: 100% 50%
+
+
+            .image_url {
+                color: black;
             }
-            100% {
-                background-position: 0% 50%
+
+
+            h3 {
+                color: #6f87bd;
             }
-        }
-
-        #grad1 {
-            height: 100px;
-            background-color: #4295f5;
-            /* For browsers that do not support gradients */
-            background-image: linear-gradient(90deg, #4295f5, grey);
-            /* Standard syntax (must be last) */
-        }
-
-        .menuItem {
-            margin-top: 15px;
-            font-size: 20px;
-        }
 
 
-        .btn
-        submit_btn {
-            color: #4295f5;
-        }
+            /* Set a style for all buttons */
 
-        input[type=search]:not(.browser-default):focus:not([readonly]) {
-            border-bottom: #6f87bd;
-            box-shadow: 0 1px 0 0 #6f87bd;
-            padding-left: 25px;
-        }
+            button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                opacity: 0.9;
+            }
 
+            button:hover {
+                opacity: 1;
+            }
 
-        p {
-            color: #6f87bd;
-            font-size: 15px;
-        }
+            submit_btn {
+                color: #4295f5;
+            }
 
-        .image_url {
-           color: black;
-        }
+            .btn,
+            .btn-large {
+                background-color: #4295f5;
+            }
 
-
-        input[type=text]:focus {
-            background-color: #ece6e5;
-            outline: none;
-        }
-
-        h3 {
-            color: #6f87bd;
-        }
-
-        /* Add a background color when the inputs get focus */
-
-        input[type=text]:focus {
-            background-color: #ddd;
-            outline: none;
-        }
-
-        /* Set a style for all buttons */
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            opacity: 0.9;
-        }
-
-        button:hover {
-            opacity: 1;
-        }
-
-        .btn,
-        .btn-large {
-            background-color: #4295f5;
-        }
-
-        .btn:hover,
-        .btn-sml:hover,
-        .btn_small:hover,
-        .red:hover,
-        .btn-large:hover {
-            background-color: #95abc4;
-        }
+            .btn:hover,
+            .btn-sml:hover,
+            .btn_small:hover,
+            .red:hover,
+            .btn-large:hover {
+                background-color: #95abc4;
+            }
 
 
-        /* Extra styles for the cancel button */
+             /* Extra styles for the cancel button */
 
-        .cancelbtn {
-            padding: 14px 20px;
-            background-color: #f44336;
-        }
+            .cancelbtn {
+                padding: 14px 20px;
+                background-color: #f44336;
+            }
 
-        .guitar {
-            position: relative;
-            background-image: -webkit-linear-gradient(#378DBC 0%, #B6E8F1 46%, #ffffff 50%, #32120E 54%, #FFC488 58%, #582C11 90%, #EC9B4E 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            -webkit-text-stroke: 4px #f5f5f5;
-            font-size: 100px;
-            font-family: 'Titillium Web', sans-serif;
-            font-style: italic;
-            margin: 0;
-            line-height: 1;
-        }
+             /* Title logo styling */
 
-        .guitar:before {
-            content: 'Guitar';
-            position: absolute;
-            left: 0;
-            top: -10;
-            z-index: 10;
-            background-image: -webkit-linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%);
-            background-position: -30px 0;
-            -webkit-background-clip: text;
-            -webkit-text-stroke: 0;
-            padding-right: 8px;
-            -webkit-animation-name: chrome_effect;
-            -webkit-animation-duration: 6s;
-            -webkit-animation-delay: 2s;
-            -webkit-animation-timing-function: linear;
-            -webkit-animation-iteration-count: infinite;
-        }
+            .guitar {
+                position: relative;
+                background-image: -webkit-linear-gradient(#378DBC 0%, #B6E8F1 46%, #ffffff 50%, #32120E 54%, #FFC488 58%, #582C11 90%, #EC9B4E 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke: 4px #f5f5f5;
+                font-size: 100px;
+                font-family: 'Titillium Web', sans-serif;
+                font-style: italic;
+                margin: 0;
+                line-height: 1;
+            }
 
-        .database {
-            position: absolute;
-            margin: -10px;
-            font-family: 'Mr Dafoe', cursive;
-            font-size: 60px;
-            color: #F975F7;
-            transform: rotate(-15deg);
-            -ms-transform: rotate(-15deg);
-            /* IE 9 */
-            -webkit-transform: rotate(-15deg);
-            /* Safari and Chrome */
-            margin-left: -95px;
-            margin-top: 60px;
-            -webkit-text-stroke: 1px #f008b7;
-            -webkit-filter: drop-shadow(2px 2px 10px #f008b7);
-            z-index: 70;
-        }
+            .guitar:before {
+                content: 'Guitar';
+                position: absolute;
+                left: 0;
+                top: -10;
+                z-index: 10;
+                background-image: -webkit-linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%);
+                background-position: -30px 0;
+                -webkit-background-clip: text;
+                -webkit-text-stroke: 0;
+                padding-right: 8px;
+                -webkit-animation-name: chrome_effect;
+                -webkit-animation-duration: 6s;
+                -webkit-animation-delay: 2s;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-iteration-count: infinite;
+            }
 
-        .windows .dreams {
-            -webkit-text-stroke: 4px #f008b7;
-        }
+            .database {
+                position: absolute;
+                margin: -10px;
+                font-family: 'Mr Dafoe', cursive;
+                font-size: 60px;
+                color: #F975F7;
+                transform: rotate(-15deg);
+                -ms-transform: rotate(-15deg);
+                /* IE 9 */
+                -webkit-transform: rotate(-15deg);
+                /* Safari and Chrome */
+                margin-left: -95px;
+                margin-top: 60px;
+                -webkit-text-stroke: 1px #f008b7;
+                -webkit-filter: drop-shadow(2px 2px 10px #f008b7);
+                z-index: 70;
+            }
 
-
+            .windows .dreams {
+                -webkit-text-stroke: 4px #f008b7;
+            }
         </style>
-
     </head>
     <body>
         <header>
@@ -266,13 +250,6 @@
                 close: 'Ok',
                 closeOnSelect: false // Close upon selecting a date,
             });
-
-            if (navigator.platform.indexOf('Win') != -1) {
-                window.document.getElementById("wrapper").setAttribute("class", "windows");
-            }
-            else if (navigator.platform.indexOf('Mac') != -1) {
-                window.document.getElementById("wrapper").setAttribute("class", "mac");
-            }
         </script>
     </body>
 </html>

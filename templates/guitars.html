@@ -1,12 +1,12 @@
 {% extends 'base.html'%} {% block content %}
 <div class="row">
-    <div class="col s12 m6">
-        {% for guitar in guitars %}
+    {% for guitar in guitars %}
+    <div class="col s12 m6 l6">
         <div class="card" style="padding-left: 5px">
             <div>
             <strong>{{guitar.guitar_name}} - {{guitar.category_name}} </strong> - {{guitar.date_created}}
             </div>
-            <div class="card-image" "col s12 m6">
+            <div class="card-image" "col s12 m6 l6" >
                 <img src="{{guitar.image_url}}" class="img-rounded" alt="guitarpic" width="530" height="350">
             </div>
             <div class="card-content">
@@ -19,8 +19,8 @@
                 <a href="{{url_for('edit_guitars', guitar_id=guitar._id)}}" class="waves-effect waves-light btn btn_small blue">EDIT</a>
             </div>
         </div>
-        {% endfor %}
-    </div>
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}
 

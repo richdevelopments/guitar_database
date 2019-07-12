@@ -2,8 +2,8 @@
 
 <h2>Results for: {{ query }}</h2>
     <div class="row">
-        <div class="col s12 m7">
         {% for guitar in guitars %}
+        <div class="col s12 m6">
         <div class="card" style="padding-left: 5px">
             <div>
                 <strong>{{guitar.guitar_name}} - {{guitar.category_name}} </strong> - {{guitar.date_created}}
@@ -20,7 +20,7 @@
                 <a href="{{ url_for('get_guitars', guitar_id=guitar._id) }}">Home</a>
             </div>
         </div>
+        </div>
     {% endfor %}
-    </div>
 </div>
 {% endblock %}
