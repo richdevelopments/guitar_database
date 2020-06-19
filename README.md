@@ -8,7 +8,7 @@ Data-centric Development
 <br>
 
 This web application is a database of guitars that can be searched and viewed by any user. I have built this project using Flask, Python, HTML5, CSS3 and MongoDB.
-The user is able to create, update and delete their own guitars.
+The user is able to create, update and delete their own guitars, creating a database or collection of different guitars with full descriptions and specifications.
 
 
 ## Demo
