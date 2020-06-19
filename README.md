@@ -1,6 +1,12 @@
 # Guitar Database
 Data-centric Development
 
+----
+<div align="center">
+    <img src="https://i.imgur.com/7aV1S0J.png" href="https://guitar-collection.herokuapp.com/" target="_blank" rel="noopener" alt="Image of how home page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
+</div>
+<br>
+
 This web application is a database of guitars that can be searched and viewed by any user. I have built this project using Flask, Python, HTML5, CSS3 and MongoDB.
 The user is able to create, update and delete their own guitars.
 
